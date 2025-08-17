@@ -1,0 +1,246 @@
+/*
+ * Basic mobile‑first styling for the Prompt Battle game. This CSS
+ * aims to provide a clean and readable interface on small screens
+ * while remaining functional on larger displays. Feel free to
+ * customize colours, fonts and layouts to match your brand.
+ */
+
+:root {
+  --primary-color: #4c6ef5;
+  --secondary-color: #748ffc;
+  --background-color: #f9f9fb;
+  --text-color: #333;
+  --border-radius: 8px;
+  --spacing: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--spacing);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+h1.title {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+h2.subtitle {
+  text-align: center;
+  margin-bottom: var(--spacing);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing);
+}
+
+.form-group label {
+  margin-bottom: 4px;
+  font-weight: bold;
+}
+
+.form-group input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+}
+
+.button-row {
+  display: flex;
+  gap: var(--spacing);
+  margin-top: var(--spacing);
+}
+
+button.primary-button,
+button.secondary-button {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+button.primary-button {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+button.secondary-button {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+button.primary-button:disabled,
+button.secondary-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Lobby styles */
+.lobby {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+}
+
+/* Game room layout */
+.game-room {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.game-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing);
+}
+.game-state-label {
+  font-size: 14px;
+  color: #666;
+}
+.phase {
+  margin-bottom: var(--spacing);
+}
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--spacing);
+}
+.gallery-item {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.gallery-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+}
+.sidebar {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: var(--border-radius);
+  padding: var(--spacing);
+  margin-top: var(--spacing);
+}
+.scoreboard {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.score-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.score-item:last-child {
+  border-bottom: none;
+}
+.rank {
+  width: 24px;
+  font-weight: bold;
+}
+.player-name {
+  flex: 1;
+}
+.player-score {
+  width: 60px;
+  text-align: right;
+}
+
+/* Prompt input styles */
+.prompt-input textarea {
+  width: 100%;
+  padding: var(--spacing);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  resize: vertical;
+  box-sizing: border-box;
+  margin-bottom: 4px;
+}
+.prompt-input .prompt-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.prompt-input .suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.prompt-input .suggestion {
+  padding: 4px 8px;
+  background-color: #eee;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  cursor: pointer;
+}
+.prompt-input .suggestion:hover {
+  background-color: #ddd;
+}
+.submitted-msg {
+  color: green;
+  font-style: italic;
+}
+
+/* Image display */
+.image-display {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  border: 1px solid #eee;
+}
+.image-display img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.1s ease-out;
+}
+
+/* Winner screen */
+.winner-screen {
+  text-align: center;
+}
+.winner-announcement {
+  background-color: #e7f5ff;
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing);
+}
+
+@media (min-width: 600px) {
+  .game-room {
+    flex-direction: row;
+  }
+  .phase {
+    flex: 1;
+    margin-right: var(--spacing);
+  }
+  .sidebar {
+    width: 200px;
+  }
+}
